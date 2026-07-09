@@ -19,16 +19,19 @@
   </style>
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1284225866366914');
-    fbq('track', 'PageView');
+    if (!window.__metaPixelInit) {
+      window.__metaPixelInit = true;
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1284225866366914');
+      fbq('track', 'PageView');
+    }
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1284225866366914&amp;ev=PageView&amp;noscript=1"></noscript>
   <!-- End Meta Pixel Code -->
@@ -61,7 +64,7 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 14px;">
-          <a href="{{ waHero }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 16px 28px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
+          <a href="{{ waHero }}" target="_blank" rel="noopener" onClick="{{ trackLead }}" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 16px 28px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
           <a href="#galeria" style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid #1b2338; color: #eaf2f7; font-weight: 600; font-size: 15px; padding: 16px 26px; text-decoration: none; border-radius: 2px; transition: border-color .15s ease, transform .15s ease;" style-hover="border-color: #00e5ff; transform: translateY(-2px);">Ver resultados</a>
         </div>
 
@@ -371,7 +374,7 @@
             <div style="display: flex; gap: 10px;"><span style="color: #00e5ff;">✓</span><span>Todos los bonos incluidos</span></div>
             <div style="display: flex; gap: 10px;"><span style="color: #00e5ff;">✓</span><span>Orden de apartado como comprobante</span></div>
           </div>
-          <a href="{{ waPrecio }}" target="_blank" rel="noopener" style="display: flex; justify-content: center; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 16px 24px; text-decoration: none; border-radius: 2px; margin-top: auto; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar en preventa por WhatsApp</a>
+          <a href="{{ waPrecio }}" target="_blank" rel="noopener" onClick="{{ trackLead }}" style="display: flex; justify-content: center; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 16px 24px; text-decoration: none; border-radius: 2px; margin-top: auto; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar en preventa por WhatsApp</a>
         </div>
       </div>
 
@@ -518,7 +521,7 @@
     <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 120%, rgba(0,229,255,0.10), transparent 60%); pointer-events: none;"></div>
     <div style="position: relative; max-width: 800px; margin: 0 auto; padding: 80px 32px; text-align: center; display: flex; flex-direction: column; gap: 24px; align-items: center;">
       <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4.5vw, 54px); margin: 0; line-height: 1.05;">¿Está tu ciudad en la gira?<br><span style="color: #00e5ff;">Aparta antes de que se llene tu sede.</span></h2>
-      <a href="{{ waCta2 }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 17px 32px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
+      <a href="{{ waCta2 }}" target="_blank" rel="noopener" onClick="{{ trackLead }}" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 17px 32px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
     </div>
   </section>
 
@@ -558,7 +561,7 @@
         <span style="display: block;">LA LUZ NO SE ADIVINA.</span>
         <span style="display: block; color: transparent; -webkit-text-stroke: 2px #00e5ff;">SE DOMINA.</span>
       </h2>
-      <a href="{{ waFinal }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 17px; padding: 18px 36px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
+      <a href="{{ waFinal }}" target="_blank" rel="noopener" onClick="{{ trackLead }}" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #05270f; font-weight: 800; font-size: 17px; padding: 18px 36px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar mi lugar por WhatsApp</a>
       <div style="border-top: 1px solid #151b2b; width: 100%; padding-top: 32px; margin-top: 24px; display: flex; flex-direction: column; gap: 18px; align-items: center;">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
           <a href="https://www.instagram.com/photographysamuelleon/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%); border-radius: 12px; padding: 13px 22px; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.5);"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true"><rect x="3" y="3" width="20" height="20" rx="6" stroke="#ffffff" stroke-width="3.5"></rect><circle cx="13" cy="13" r="4.4" stroke="#ffffff" stroke-width="3.5"></circle><circle cx="18.9" cy="7.1" r="1.7" fill="#ffffff"></circle></svg><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 3px;"><span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.95rem; color: #ffffff; line-height: 1;">Instagram</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: #ffffff; opacity: 0.85; line-height: 1;">@photographysamuelleon</span></span></a>
@@ -580,7 +583,7 @@
           <span style="font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; color: #00e5ff;">$7,000 <span style="font-size: 15px; color: #8b98a9;">MXN</span></span>
         </span>
       </div>
-      <a href="{{ waBar }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 14.5px; padding: 12px 24px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4);">Apartar mi lugar</a>
+      <a href="{{ waBar }}" target="_blank" rel="noopener" onClick="{{ trackLead }}" style="display: inline-flex; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 14.5px; padding: 12px 24px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4);">Apartar mi lugar</a>
     </div>
   </div>
 
@@ -596,6 +599,7 @@ class Component extends DCLogic {
   renderVals() {
     const num = this.props.whatsappNumero ?? '526623391243';
     const wa = (msg) => 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
+    const trackLead = () => { if (typeof window.fbq === 'function') window.fbq('track', 'Lead'); };
 
     const faqsData = [
       { q: '¿Cuánto cuesta y qué precio me toca?', a: 'El precio regular del workshop es de $8,300 MXN. Durante la Gira Nacional 2026 el precio es de $7,300 MXN, y si apartas tu lugar en preventa con anticipo, pagas solo $7,000 MXN. El precio de preventa es el mejor de toda la gira.' },
@@ -640,6 +644,7 @@ class Component extends DCLogic {
       waCiudad: wa('Hola Samuel, mi ciudad no aparece en la Gira Nacional 2026 del workshop "Domina la Luz en Estudio". ¿Habrá fecha para mi ciudad?'),
       waCta2: wa('Hola Samuel, mi ciudad está en la gira y quiero apartar mi lugar en el workshop "Domina la Luz en Estudio" antes de que se llene.'),
       waFinal: wa('Hola Samuel, estoy listo para dominar la luz 💡 Quiero apartar mi lugar en el workshop "Domina la Luz en Estudio".'),
+      trackLead,
     };
   }
 }
