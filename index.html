@@ -20,9 +20,30 @@ fbq('track', 'PageView');
 
 window.trackMetaLead = function() {
   if (typeof window.fbq === 'function') {
-    window.fbq('track', 'Lead');
+    window.fbq('track', 'Lead', {
+      value: 7000,
+      currency: 'MXN',
+      content_name: 'Preventa Domina la Luz en Estudio'
+    });
   }
   return true;
+};
+
+window.trackMetaContact = function() {
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'Contact', {
+      content_name: 'Itinerario Domina la Luz en Estudio'
+    });
+  }
+  return true;
+};
+
+window.dlFaqToggle = function(btn) {
+  var answer = btn.nextElementSibling;
+  var icon = btn.querySelector('[data-faq-icon]');
+  var isOpen = answer.style.display === 'block';
+  answer.style.display = isOpen ? 'none' : 'block';
+  if (icon) { icon.textContent = isOpen ? '+' : '−'; }
 };
 </script>
 
@@ -58,7 +79,7 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
       <div style="display: flex; flex-direction: column; gap: 24px; min-width: 0;">
         <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #00e5ff; display: flex; align-items: center; gap: 10px;">
           <span style="display: inline-block; width: 28px; height: 1px; background: #00e5ff;"></span>
-          <span>Gira Nacional 2026 · 8 ciudades · Workshop presencial de 2 días</span>
+          <span>Gira Nacional 2026 · 5 ciudades · Workshop presencial de 2 días</span>
         </div>
         <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 8vw, 118px); line-height: 0.92; margin: 0; letter-spacing: 0.01em;">
           <span style="display: block; color: #eaf2f7;">DOMINA LA LUZ</span>
@@ -66,10 +87,13 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
         </h1>
         <p style="margin: 0; max-width: 520px; font-size: 17px; line-height: 1.65; color: #8b98a9;">El workshop 100% práctico donde aprendes a crear la iluminación editorial y el estilo buchón y norteño que tus clientes exigen hoy. <strong style="color: #eaf2f7; font-weight: 600;">Tú armas el esquema, tú diriges, tú disparas.</strong> Deja de perder clientes por falta de actualización y domina las sesiones de cumpleaños top en tu ciudad.</p>
 
-        <div style="display: inline-flex; align-items: baseline; gap: 16px; border: 1px solid #1b2338; background: #0b0f1a; padding: 16px 20px; align-self: flex-start; border-radius: 2px;">
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #8b98a9; text-decoration: line-through;">$8,300</span>
-          <span style="font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: #00e5ff; line-height: 1;">$7,000 <span style="font-size: 20px; color: #8b98a9;">MXN</span></span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b98a9;">Preventa apartando con anticipo</span>
+        <div style="display: inline-flex; flex-direction: column; gap: 10px; border: 1px solid #00e5ff; background: linear-gradient(135deg, rgba(0,229,255,0.10), #0b0f1a); padding: 18px 22px; align-self: flex-start; border-radius: 2px; box-shadow: 0 0 40px rgba(0,229,255,0.18);">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #05070d; background: #00e5ff; padding: 5px 10px; border-radius: 2px; font-weight: 700; align-self: flex-start;">⚡ Solo primeros 5 lugares por sede</span>
+          <div style="display: flex; align-items: baseline; gap: 16px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #8b98a9; text-decoration: line-through;">$8,300</span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: #00e5ff; line-height: 1;">$7,000 <span style="font-size: 20px; color: #8b98a9;">MXN</span></span>
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8b98a9;">Preventa apartando con $2,500 MXN de anticipo</span>
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 14px;">
@@ -78,13 +102,10 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Hermosillo</strong> 22–23 AGO</span>
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Mexicali</strong> 29–30 AGO</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">San Luis Potosí</strong> 5–6 SEP</span>
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Querétaro</strong> 12–13 SEP</span>
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Guadalajara</strong> 19–20 SEP</span>
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Monterrey</strong> 26–27 SEP</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">Veracruz</strong> 10–11 OCT</span>
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b98a9; border: 1px solid #1b2338; padding: 6px 10px; border-radius: 2px;"><strong style="color: #eaf2f7;">CDMX</strong> 26–27 OCT</span>
         </div>
 
@@ -333,6 +354,17 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
     </div>
   </section>
 
+  <!-- ============ CTA SECUNDARIO: ITINERARIO ============ -->
+  <section data-screen-label="CTA itinerario" style="border-bottom: 1px solid #151b2b;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 40px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border: 1px dashed #1b2338; border-radius: 2px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #8b98a9;">¿Aún no decides?</div>
+        <div style="font-size: 16.5px; font-weight: 700; color: #eaf2f7;">Descarga el itinerario completo del taller, minuto a minuto.</div>
+      </div>
+      <a href="https://wa.me/526623391243?text=Hola%20Samuel%2C%20quiero%20el%20itinerario%20completo%20del%20workshop%20%22Domina%20la%20Luz%20en%20Estudio%22%20antes%20de%20decidir." target="_blank" rel="noopener" onclick="return window.trackMetaContact ? window.trackMetaContact() : true;" style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid #1b2338; color: #eaf2f7; font-weight: 600; font-size: 15px; padding: 14px 24px; text-decoration: none; border-radius: 2px; white-space: nowrap; transition: border-color .15s ease, transform .15s ease;" style-hover="border-color: #00e5ff; transform: translateY(-2px);">📋 Descargar itinerario por WhatsApp</a>
+    </div>
+  </section>
+
   <!-- ============ INCLUYE ============ -->
   <section data-screen-label="Incluye" style="border-bottom: 1px solid #151b2b;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 88px 32px;">
@@ -357,24 +389,16 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
     <div style="position: absolute; top: 10%; left: -180px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,229,255,0.10) 0%, rgba(0,229,255,0) 65%); pointer-events: none;"></div>
     <div style="position: relative; max-width: 1000px; margin: 0 auto; padding: 88px 32px;">
       <div style="text-align: center; margin-bottom: 48px;">
-        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #05070d; background: #00e5ff; padding: 8px 18px; border-radius: 2px; font-weight: 500;">PREVENTA — CUPO LIMITADO POR SEDE</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #05070d; background: #00e5ff; padding: 8px 18px; border-radius: 2px; font-weight: 500;">PREVENTA — SOLO PRIMEROS 5 LUGARES POR SEDE</span>
         <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 4.5vw, 60px); margin: 24px 0 0; line-height: 1;">Tu lugar en la gira</h2>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: stretch;">
-        <div style="background: #0b0f1a; border: 1px solid #1b2338; border-radius: 2px; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; justify-content: center;">
+        <div style="background: #0b0f1a; border: 1px solid #00e5ff; border-radius: 2px; padding: 40px 36px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 0 60px rgba(0,229,255,0.16); position: relative; max-width: 460px; width: 100%;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #05070d; background: #00e5ff; padding: 6px 14px; border-radius: 2px; font-weight: 700; align-self: flex-start;">⚡ Solo primeros 5 lugares por sede</span>
           <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b98a9;">Precio de gira 2026</div>
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8b98a9; text-decoration: line-through;">$8,300</span>
-            <span style="font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: #eaf2f7;">$7,300 <span style="font-size: 22px; color: #8b98a9;">MXN</span></span>
-          </div>
-          <p style="margin: 0; color: #8b98a9; font-size: 14.5px; line-height: 1.6;">Pagando el día del evento, sujeto a disponibilidad de lugares en tu sede.</p>
-        </div>
-
-        <div style="background: #0b0f1a; border: 1px solid #00e5ff; border-radius: 2px; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 50px rgba(0,229,255,0.12); position: relative;">
-          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #00e5ff;">Preventa apartando con anticipo</div>
-          <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8b98a9; text-decoration: line-through;">$7,300</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #8b98a9; text-decoration: line-through;">costo regular $8,300</span>
             <span style="font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: #00e5ff;">$7,000 <span style="font-size: 22px; color: #8b98a9;">MXN</span></span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14.5px;">
@@ -383,19 +407,22 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
             <div style="display: flex; gap: 10px;"><span style="color: #00e5ff;">✓</span><span>Todos los bonos incluidos</span></div>
             <div style="display: flex; gap: 10px;"><span style="color: #00e5ff;">✓</span><span>Orden de apartado como comprobante</span></div>
           </div>
+          <p style="margin: 0; color: #8b98a9; font-size: 14.5px; line-height: 1.6;">Aparta tu lugar con <strong style="color: #eaf2f7; font-weight: 700;">$2,500 MXN de anticipo</strong>. Agotados los primeros 5 lugares de tu sede, aplica el precio regular de $8,300 MXN, sujeto a disponibilidad.</p>
           <a href="https://wa.me/526623391243?text=Hola%20Samuel%2C%20quiero%20apartar%20mi%20lugar%20en%20preventa%20%28%247%2C000%20MXN%29%20del%20workshop%20%22Domina%20la%20Luz%20en%20Estudio%22.%20%C2%BFC%C3%B3mo%20hago%20el%20anticipo%3F" target="_blank" rel="noopener" onclick="return window.trackMetaLead ? window.trackMetaLead() : true;" style="display: flex; justify-content: center; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 16px; padding: 16px 24px; text-decoration: none; border-radius: 2px; margin-top: auto; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35);">Apartar en preventa por WhatsApp</a>
         </div>
       </div>
 
+      <div style="margin-top: 24px; max-width: 460px; margin-left: auto; margin-right: auto; border: 1px solid rgba(0,229,255,0.35); border-radius: 2px; padding: 20px 22px; background: rgba(0,229,255,0.04); display: flex; gap: 14px; align-items: flex-start;">
+        <span style="font-size: 22px; line-height: 1;">💡</span>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6;"><strong style="color: #eaf2f7; font-weight: 700;">El taller se paga solo:</strong> <span style="color: #8b98a9;">con una sola sesión high-ticket — cumpleaños, maternidad o estilo buchón — recuperas tu inversión completa. El resto de las sesiones que ilumines con este nivel son ganancia extra.</span></p>
+      </div>
+
       <div style="margin-top: 40px; border: 1px solid #1b2338; border-radius: 2px; overflow: hidden;">
         <div style="background: #0b0f1a; padding: 18px 24px; border-bottom: 1px solid #1b2338; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #eaf2f7;">Gira Nacional 2026 — Fechas confirmadas</div>
-        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Hermosillo</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">22–23 de agosto</span></div>
         <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Mexicali</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">29–30 de agosto</span></div>
-        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">San Luis Potosí</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">5–6 de septiembre</span></div>
         <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Querétaro</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">12–13 de septiembre</span></div>
         <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Guadalajara</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">19–20 de septiembre</span></div>
         <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Monterrey</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">26–27 de septiembre</span></div>
-        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">Veracruz</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">10–11 de octubre</span></div>
         <div style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 1px solid #131a2b; font-size: 14.5px;"><span style="font-weight: 600;">CDMX</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9;">26–27 de octubre</span></div>
         <a href="https://wa.me/526623391243?text=Hola%20Samuel%2C%20mi%20ciudad%20no%20aparece%20en%20la%20Gira%20Nacional%202026%20del%20workshop%20%22Domina%20la%20Luz%20en%20Estudio%22.%20%C2%BFHabr%C3%A1%20fecha%20para%20mi%20ciudad%3F" target="_blank" rel="noopener" onclick="return window.trackMetaLead ? window.trackMetaLead() : true;" style="display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; font-size: 14.5px; color: #00e5ff; text-decoration: none; background: rgba(0,229,255,0.04); transition: background .15s ease;" style-hover="background: rgba(0,229,255,0.10);"><span style="font-weight: 600;">¿Tu ciudad no está?</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">→ Pregunta por WhatsApp</span></a>
       </div>
@@ -446,7 +473,7 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
         <p style="margin: 0; color: #8b98a9; font-size: 16px; line-height: 1.7;">Samuel también empezó donde tú estás: cubriendo eventos sociales. Hoy dirige su propio estudio y forma fotógrafos capaces de iluminar con confianza.</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px;">
           <div style="border: 1px solid #1b2338; border-radius: 2px; padding: 18px 14px; text-align: center;">
-            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; color: #00e5ff;">8</div>
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; color: #00e5ff;">5</div>
             <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8b98a9; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em;">Ciudades</div>
           </div>
           <div style="border: 1px solid #1b2338; border-radius: 2px; padding: 18px 14px; text-align: center;">
@@ -548,15 +575,55 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
     <div style="max-width: 800px; margin: 0 auto; padding: 88px 32px;">
       <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 4.5vw, 60px); margin: 0 0 40px; line-height: 1;">Preguntas <span style="color: #00e5ff;">frecuentes</span></h2>
       <div style="display: flex; flex-direction: column;">
-        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
-          <div style="border-top: 1px solid #1b2338;">
-            <button onClick="{{ f.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
-              <span>{{ f.q }}</span>
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">{{ f.icon }}</span>
-            </button>
-            <div style="display: {{ f.display }}; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">{{ f.a }}</div>
-          </div>
-        </sc-for>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Cuánto cuesta y qué precio me toca?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">El precio regular del workshop es de $8,300 MXN. En preventa, solo los primeros 5 lugares de cada sede pagan $7,000 MXN, apartando con un anticipo de $2,500 MXN. Agotados esos 5 lugares, aplica el precio regular de $8,300 MXN, sujeto a disponibilidad.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Qué nivel necesito para tomar el taller?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Solo necesitas saber usar tu cámara en modo manual. No importa si nunca has usado luz artificial: el taller está diseñado para construir tu criterio de iluminación desde la base, y también para actualizar a fotógrafos con experiencia en eventos.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Qué necesito llevar?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Tu cámara y un lente 24–70 mm, 35 mm o el lente de kit. Todo el equipo de iluminación (LED, flash, modificadores, fondos) lo pone el taller.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿En qué ciudades y fechas es la gira?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Mexicali 29–30 de agosto · Querétaro 12–13 de septiembre · Guadalajara 19–20 de septiembre · Monterrey 26–27 de septiembre · CDMX 26–27 de octubre. Si tu ciudad no está, pregunta por WhatsApp: la gira puede crecer.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Qué incluye el precio?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Los dos días completos del workshop, práctica con dos modelos profesionales, todos los bonos (acciones y plugins, biblioteca de videos de edición y certificado oficial). Los viáticos — transporte, hospedaje y alimentos — corren por cuenta del alumno.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Cómo aparto mi lugar?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Escríbenos por WhatsApp, realiza tu anticipo de $2,500 MXN y recibirás tu orden de apartado como comprobante. Con eso tu lugar queda asegurado al precio de preventa de $7,000 MXN, disponible solo para los primeros 5 lugares de tu sede.</div>
+        </div>
+        <div style="border-top: 1px solid #1b2338;">
+          <button onclick="dlFaqToggle(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; color: #eaf2f7; font-family: 'Manrope', sans-serif; font-size: 16.5px; font-weight: 700; text-align: left; padding: 22px 4px; cursor: pointer;">
+            <span>¿Qué pasa si cancelo o no puedo asistir?</span>
+            <span data-faq-icon style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #00e5ff; flex-shrink: 0;">+</span>
+          </button>
+          <div data-faq-answer style="display: none; padding: 0 4px 24px; color: #8b98a9; font-size: 15px; line-height: 1.7;">Si tú cancelas por enfermedad o por cualquier causa ajena al taller, el anticipo no es reembolsable. En cambio, si el taller se cancela por nuestra parte, tu anticipo se reembolsa al 100%.</div>
+        </div>
         <div style="border-top: 1px solid #1b2338;"></div>
       </div>
     </div>
@@ -586,10 +653,11 @@ src="https://www.facebook.com/tr?id=1284225866366914&ev=PageView&noscript=1"/>
   <div data-screen-label="Barra de precio" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: rgba(11,15,26,0.92); backdrop-filter: blur(12px); border-top: 1px solid #1b2338; display: {{ barDisplay }};">
     <div style="max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
       <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b98a9;">Preventa · Gira Nacional 2026</span>
-        <span style="display: flex; align-items: baseline; gap: 10px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #00e5ff; font-weight: 700;">⚡ Primeros 5 lugares · Gira Nacional 2026</span>
+        <span style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8b98a9; text-decoration: line-through;">$8,300</span>
           <span style="font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; color: #00e5ff;">$7,000 <span style="font-size: 15px; color: #8b98a9;">MXN</span></span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8b98a9;">· $2,500 para apartar</span>
         </span>
       </div>
       <a href="https://wa.me/526623391243?text=Hola%20Samuel%2C%20vi%20la%20preventa%20de%20%247%2C000%20MXN%20del%20workshop%20%22Domina%20la%20Luz%20en%20Estudio%22%20y%20quiero%20apartar%20mi%20lugar." target="_blank" rel="noopener" onclick="return window.trackMetaLead ? window.trackMetaLead() : true;" style="display: inline-flex; align-items: center; background: #25d366; color: #05270f; font-weight: 800; font-size: 14.5px; padding: 12px 24px; text-decoration: none; border-radius: 2px; transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4);">Apartar mi lugar</a>
@@ -611,12 +679,13 @@ class Component extends DCLogic {
     const trackLead = () => { return window.trackMetaLead ? window.trackMetaLead() : true; };
 
     const faqsData = [
-      { q: '¿Cuánto cuesta y qué precio me toca?', a: 'El precio regular del workshop es de $8,300 MXN. Durante la Gira Nacional 2026 el precio es de $7,300 MXN, y si apartas tu lugar en preventa con anticipo, pagas solo $7,000 MXN. El precio de preventa es el mejor de toda la gira.' },
+      { q: '¿Cuánto cuesta y qué precio me toca?', a: 'El precio regular del workshop es de $8,300 MXN. En preventa, solo los primeros 5 lugares de cada sede pagan $7,000 MXN, apartando con un anticipo de $2,500 MXN. Agotados esos 5 lugares, aplica el precio regular de $8,300 MXN, sujeto a disponibilidad.' },
       { q: '¿Qué nivel necesito para tomar el taller?', a: 'Solo necesitas saber usar tu cámara en modo manual. No importa si nunca has usado luz artificial: el taller está diseñado para construir tu criterio de iluminación desde la base, y también para actualizar a fotógrafos con experiencia en eventos.' },
       { q: '¿Qué necesito llevar?', a: 'Tu cámara y un lente 24–70 mm, 35 mm o el lente de kit. Todo el equipo de iluminación (LED, flash, modificadores, fondos) lo pone el taller.' },
-      { q: '¿En qué ciudades y fechas es la gira?', a: 'Hermosillo 22–23 de agosto · Mexicali 29–30 de agosto · San Luis Potosí 5–6 de septiembre · Querétaro 12–13 de septiembre · Guadalajara 19–20 de septiembre · Monterrey 26–27 de septiembre · Veracruz 10–11 de octubre · CDMX 26–27 de octubre. Si tu ciudad no está, pregunta por WhatsApp: la gira puede crecer.' },
+      { q: '¿En qué ciudades y fechas es la gira?', a: 'Mexicali 29–30 de agosto · Querétaro 12–13 de septiembre · Guadalajara 19–20 de septiembre · Monterrey 26–27 de septiembre · CDMX 26–27 de octubre. Si tu ciudad no está, pregunta por WhatsApp: la gira puede crecer.' },
       { q: '¿Qué incluye el precio?', a: 'Los dos días completos del workshop, práctica con dos modelos profesionales, todos los bonos (acciones y plugins, biblioteca de videos de edición y certificado oficial). Los viáticos — transporte, hospedaje y alimentos — corren por cuenta del alumno.' },
-      { q: '¿Cómo aparto mi lugar?', a: 'Escríbenos por WhatsApp, realiza tu anticipo y recibirás tu orden de apartado como comprobante. Con eso tu lugar queda asegurado al precio de preventa de $7,000 MXN.' },
+      { q: '¿Cómo aparto mi lugar?', a: 'Escríbenos por WhatsApp, realiza tu anticipo de $2,500 MXN y recibirás tu orden de apartado como comprobante. Con eso tu lugar queda asegurado al precio de preventa de $7,000 MXN, disponible solo para los primeros 5 lugares de tu sede.' },
+      { q: '¿Qué pasa si cancelo o no puedo asistir?', a: 'Si tú cancelas por enfermedad o por cualquier causa ajena al taller, el anticipo no es reembolsable. En cambio, si el taller se cancela por nuestra parte, tu anticipo se reembolsa al 100%.' },
     ];
 
     const faqs = faqsData.map((f, i) => ({
