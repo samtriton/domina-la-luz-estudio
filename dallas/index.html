@@ -195,7 +195,7 @@ footer a{color:var(--paper)}
 <a href="#agenda">Agenda</a>
 <a href="#ubicacion">Ubicación</a>
 <a href="#dudas">Dudas</a>
-<a class="btn btn-red" href="#agenda">Elegir mi horario</a>
+<a class="btn btn-red" href="#calBox" data-opencal>Reservar</a>
 </div>
 </nav>
 </header>
@@ -207,6 +207,7 @@ footer a{color:var(--paper)}
 <div class="chips"><span class="chip">DALLAS, TEXAS</span><span class="chip hot">9–15 Y 20 DE ENERO 2027</span></div>
 <h1>Fotos que se sienten como tú.<br><em>En versión portada.</em></h1>
 <p style="margin:0;font-size:18px;line-height:1.6;color:var(--soft)">Sesiones de estudio con dirección creativa, poses guiadas y luz de nivel editorial. Solo 8 días en Dallas.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-red" href="#calBox" data-opencal>Reservar mi horario</a><a class="btn btn-ghost" href="#apartar">Cómo apartar ($150 USD)</a></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:14px">
 <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:.24em;color:var(--mutedD)">¿QUÉ SESIÓN BUSCAS?</p>
@@ -339,11 +340,11 @@ footer a{color:var(--paper)}
 <div class="row last"><span>Total</span><b id="sTotal">—</b></div>
 <div class="deposit"><span>Hoy solo apartas con</span><b>$150</b></div>
 <p id="sRest" class="muted" style="margin:0;font-size:13px;line-height:1.5">El resto lo pagas el día de tu sesión.</p>
-<div id="readyBox" class="hide" style="display:flex;flex-direction:column;gap:10px">
-<button type="button" class="btn btn-dark" id="openCal">Confirmar mi horario en el calendario</button>
+<div id="readyBox" style="display:flex;flex-direction:column;gap:10px">
+<button type="button" class="btn btn-dark" data-opencal>Reservar en el calendario</button>
 <a class="btn btn-red" id="waBtn" href="https://wa.me/526623391243">Apartar por WhatsApp</a>
 </div>
-<div id="waitBox" class="wait">Elige tu experiencia para continuar</div>
+<p id="waitBox" class="muted" style="margin:0;font-size:13px;line-height:1.5">Tip: elige experiencia, día y hora y tu mensaje de WhatsApp llegará con todos los datos.</p>
 <p class="muted" style="margin:0;font-size:12px;line-height:1.5">Tu horario queda reservado cuando envías el anticipo. Preguntar por fechas no es reservar.</p>
 </div>
 </aside>
@@ -379,7 +380,7 @@ footer a{color:var(--paper)}
 <section id="dudas" class="white">
 <div class="wrap pad split">
 <div style="flex-basis:380px;display:flex;flex-direction:column;gap:20px">
-<p class="eyebrow">CÓMO RESERVAR</p>
+<p class="eyebrow" id="apartar" style="scroll-margin-top:90px">CÓMO RESERVAR</p>
 <h2 style="font-size:clamp(32px,4vw,52px)">Aparta en<br><em>3 pasos.</em></h2>
 <ol class="steps">
 <li><em>1</em><span><b>Elige tu horario</b> en la agenda de arriba.</span></li>
@@ -500,15 +501,14 @@ footer a{color:var(--paper)}
     $('sSlot').textContent = S.bSlot>=0 ? SLOTS[S.bSlot][1]+' (CST)' : '—';
     $('sTotal').textContent = ch ? '$'+ch.p.price+' USD' : '—';
     $('sRest').textContent = ch ? 'El resto ($'+(ch.p.price-150)+' USD) lo pagas el día de tu sesión.' : 'El resto lo pagas el día de tu sesión.';
-    $('readyBox').classList.toggle('hide', done!==3); $('waitBox').classList.toggle('hide', done===3);
-    $('waitBox').textContent = !ch ? 'Elige tu experiencia para continuar' : (S.bDay<0 ? 'Ahora elige tu día' : 'Elige tu horario');
+    $('waitBox').classList.toggle('hide', done===3);
     if (done===3){
       var txt='Hola Samuel, quiero apartar mi sesión en Dallas:\n• Sesión: '+CATS[ch.cat]+' – '+ch.p.name+' ($'+ch.p.price+' USD)\n• Día: '+DAYS[S.bDay][2]+' 2027\n• Horario: '+SLOTS[S.bSlot][1]+' (hora de Dallas)\n¿Me pasas los datos para enviar el anticipo de $150 USD?';
       $('waBtn').href='https://wa.me/526623391243?text='+encodeURIComponent(txt);
       $('calHint').textContent='Busca el '+DAYS[S.bDay][2]+' a las '+SLOTS[S.bSlot][0]+' (hora de Dallas). Solo aparecen los horarios que siguen libres.';
     }
   }
-  $('openCal').addEventListener('click', function(){ var f=$('calFrame'); if(!f.src) f.src=f.dataset.src; $('calBox').classList.add('open'); go('calBox'); });
+  document.querySelectorAll('[data-opencal]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); var f=$('calFrame'); if(!f.src) f.src=f.dataset.src; $('calBox').classList.add('open'); setTimeout(function(){ go('calBox'); }, 50); }); });
   document.querySelectorAll('[data-cattabs] button').forEach(function(b){ b.addEventListener('click', function(){ S.cat=b.dataset.cat; S.gal=PK[S.cat][0].id; renderCat(); }); });
   document.querySelectorAll('[data-go]').forEach(function(b){ b.addEventListener('click', function(){ S.cat=b.dataset.go; S.gal=PK[S.cat][0].id; renderCat(); go('paquetes'); }); });
 
